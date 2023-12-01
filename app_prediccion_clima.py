@@ -16,30 +16,24 @@ Original file is located at
 """
 import streamlit as st
 import pandas as pd
-import requests
 from datetime import datetime
 import warnings
-import datetime
-import pytz
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-from collections import defaultdict
 from sklearn.compose import ColumnTransformer
-from sklearn.model_selection import train_test_split, KFold, GridSearchCV, cross_val_score, StratifiedKFold
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, auc, RocCurveDisplay
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.preprocessing import FunctionTransformer, StandardScaler, MinMaxScaler
 from sklearn.pipeline import FeatureUnion, Pipeline
 import xgboost as xgb
-import matplotlib.colors as mcolors
-from pandas.plotting import scatter_matrix
 import geopy
 import geopy.distance as distance
 import shapely.wkt
 from shapely.geometry import LineString, Point
 import geopandas as gpd
 from PIL import Image
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.arima.model import ARIMA
+from pmdarima import auto_arima
 
 
 
@@ -106,19 +100,6 @@ for index, row in df.iterrows():
     if pd.isnull(row['AverageTemperatureUncertainty']):
         mean_value1 = city_monthly_mean1.get((city, month))
         df.at[index, 'AverageTemperatureUncertainty'] = mean_value1
-
-from statsmodels.tsa.stattools import adfuller
-from statsmodels.tsa.arima.model import ARIMA
-from skopt import gp_minimize
-from skopt.space import Integer
-from statsmodels.tsa.arima.model import ARIMA
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-import matplotlib.pyplot as plt
-from functools import partial
-from pmdarima import auto_arima
 
 
 def esEstacionaria(series):
