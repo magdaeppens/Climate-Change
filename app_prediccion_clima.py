@@ -19,7 +19,6 @@ import pandas as pd
 import requests
 from datetime import datetime
 import warnings
-import openpyxl
 import datetime
 import pytz
 import matplotlib.pyplot as plt
